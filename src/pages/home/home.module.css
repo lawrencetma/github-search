@@ -1,0 +1,44 @@
+.homeContainer {
+    height: 100%;
+    width: 100%;
+    padding-top: 150px;
+}
+
+.searchContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+}
+
+.searchInput {
+    border-radius: 20px;
+    height: 30px;
+    width: 400px;
+    margin: 10px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    border: none;
+    background-color: rgb(221, 221, 221);
+}
+
+.searchSubmit {
+    border-radius: 20px;
+    height: 30px;
+    width: 100px;
+    margin: 10px;
+    border: none;
+    background-color: rgb(50, 130, 206);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.formInputContainer {
+    flex-direction: column;
+}
+
+.checkbox {
+    margin-left: 20px;
+}

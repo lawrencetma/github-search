@@ -1,0 +1,53 @@
+.searchContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+    margin-left: 5%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.searchForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.formInputContainer {
+    flex-direction: column;
+    text-align: left;
+}
+
+.searchInput {
+    border-radius: 20px;
+    height: 30px;
+    width: 400px;
+    margin: 10px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    border: none;
+    background-color: rgb(221, 221, 221);
+}
+
+.searchSubmit {
+    border-radius: 20px;
+    height: 30px;
+    width: 100px;
+    margin: 10px;
+    border: none;
+    background-color: rgb(50, 130, 206);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.checkbox {
+    margin-left: 20px;
+}
+
+.resultsText {
+    text-align: left;
+    margin-left: 5.5%;
+    font-weight: bold;
+}
