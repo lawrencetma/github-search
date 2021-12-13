@@ -8,8 +8,10 @@ import { githubSearch } from '../../api/apiservice';
 
 export default (props) => {
   const { searchQuery, setSearchQuery, searchResults, setSearchResults, totalResults, setTotalResults, starFilter, setStarFilter } = useAppData();
-  // [name, url, owner, language, forks, stars, last_updated ]
   const githubColumns = ['Name', 'Link', 'Owner', 'Language', 'Forks', 'Stars', 'Last Updated', '']
+  let disableSubmit = searchQuery === '';
+  const [filterLanguage, setFilterLanguage] = useState('');
+  const [filteredResults, setFilteredResults] = useState(null);
 
   const searchSubmit = (event) => {
     event.preventDefault();
@@ -36,7 +38,19 @@ export default (props) => {
     }
   }
 
+  const filterChange = () => {
+    const $language = document.querySelector('#language');
+    let setLanguage = $language.value
+    setFilterLanguage(setLanguage)
+
+    const result = searchResults.filter((repo) => {
+      return repo.language?.toLowerCase() === setLanguage.toLowerCase()
+    })
+    setFilteredResults(result);
+  }
+
   if (searchResults) {
+    let displayedResults = filterLanguage !== '' ? filteredResults : searchResults;
     return (
         <>
             <div className={styles.searchContainer}>
@@ -48,13 +62,30 @@ export default (props) => {
                     <label for="stars">Order by Stars</label>
                   </div>
                 </div>
-                <input type="submit" value="Submit" className={styles.searchSubmit} />
+                <input type="submit" value="Submit" className={styles.searchSubmit}  disabled={disableSubmit}/>
               </form>
+              <div className={styles.filterLanguage} onChange={filterChange}>
+                <select name="language" id="language">
+                  <option value="">Select Language</option>
+                  <option value="Javascript">Javascript</option>
+                  <option value="Typescript">Typescript</option>
+                  <option value="C#">C#</option>
+                  <option value="Python">Python</option>
+                  <option value="Java">Java</option>
+                  <option value="Go">Go</option>
+                  <option value="Shell">Shell</option>
+                  <option value="Typescript">Typescript</option>
+                  <option value="C#">C#</option>
+                  <option value="Ruby">Ruby</option>
+                  <option value="PHP">PHP</option>
+                  <option value="C++">C++</option>
+                </select>
+              </div>
             </div>
             {displayResultsTotal()}
             <Table
               columns={githubColumns}
-              tableData={searchResults}
+              tableData={displayedResults}
               containerClass={styles.searchField}
             />
         </>

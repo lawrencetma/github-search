@@ -24,6 +24,22 @@ export default (props) => {
                     <table className={styles.detailsTable}>
                         <tbody>
                             <tr>
+                                <th>Owner:</th>
+                                <td>{selectedRepository.owner.login}</td>
+                            </tr>
+                            <tr>
+                                <th>Language:</th>
+                                <td>{selectedRepository.language}</td>
+                            </tr>
+                            <tr>
+                                <th>Forks:</th>
+                                <td>{selectedRepository.forks}</td>
+                            </tr>
+                            <tr>
+                                <th>Stars:</th>
+                                <td>{selectedRepository.stargazers_count}</td>
+                            </tr>
+                            <tr>
                                 <th>Created at:</th>
                                 <td>{selectedRepository?.created_at?.split('T')[0]}</td>
                             </tr>

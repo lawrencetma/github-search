@@ -7,11 +7,9 @@ export const githubSearch = (query, sortByStars, callback) => {
     })
     .then(response => response.json())
     .then(result => {
-        console.log('Success:', result);
         callback(result);
     })
     .catch(error => {
-        console.error('Error:', error);
         callback(error);
     });
 }

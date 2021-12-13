@@ -16,7 +16,7 @@ export default (props) => {
     
     const searchSubmit = (event) => {
       event.preventDefault();
-      
+
       githubSearch(searchQuery, starFilter, (results) => {
         setSearchResults(results.items);
         setTotalResults(results.total_count);
@@ -36,7 +36,7 @@ export default (props) => {
                     <label for="stars">Order by Stars</label>
                   </div>
                 </div>
-                <input type="submit" value="Submit" className={styles.searchSubmit} />
+                <input type="submit" value="Submit" className={styles.searchSubmit} disabled={searchQuery === ''}/>
               </form>
             <div className={styles.searchContainer}></div>
         </div>

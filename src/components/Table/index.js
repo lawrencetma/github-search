@@ -25,24 +25,33 @@ const renderColumnHeaders = (columns) => {
     tableData,
     setModalVisible,
   ) => {
-    return (
-      <tbody>
-        {tableData.map((record, index) => {
-          return (
-            <TableItem
-              record={record}
-              index={index}
-              setModalVisible={setModalVisible}
-            />
-          );
-        })}
-      </tbody>
-    );
+    if (tableData.length > 0) {
+      return (
+        <tbody>
+          {tableData.map((record, index) => {
+            return (
+              <TableItem
+                record={record}
+                index={index}
+                setModalVisible={setModalVisible}
+              />
+            );
+          })}
+        </tbody>
+      );
+    } else {
+      return (
+        <tbody>
+          <tr>
+            No Matching Repositories
+          </tr>
+        </tbody>
+      )
+    }
   };
   
   const Table = ({ columns, tableData, containerClass }) => {
     const [modalVisible, setModalVisible] = useState(false);
-    console.log('TABLE DATA', tableData);
     return (
       <div className={containerClass}>
         <table className={styles.resultsTable}>
